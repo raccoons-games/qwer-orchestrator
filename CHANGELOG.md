@@ -3,6 +3,22 @@
 All notable changes to the qwer orchestrator system are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions are semver.
 
+## [0.4.0] — 2026-08-25
+
+Fixes a gap the taskflow-pm entry in `global-roles.md` made obvious: it described the role and its API
+in the abstract, but the actual agent file was never shipped anywhere a fresh install could get it — a
+new team following this repo would get a tech-lead that references `taskflow-pm` and no way to produce
+that agent.
+
+### Added
+- `orchestrator/agents/taskflow-pm.md` — the real, working global agent (full TaskFlow REST API
+  reference: endpoints, request bodies, response shapes, the rich-text `description` parsing gotcha),
+  seeded into `~/.claude/agents/` by `INSTALL.md` step 3b (additive-only, same rule as
+  `learnings/roles/*.md`).
+- `standards/global-roles.md` now documents this ship-and-seed pattern generally: any global role that's
+  studio-wide infrastructure (not machine-specific) should have its finished agent file added to
+  `orchestrator/agents/` and wired into `INSTALL.md`, not just described.
+
 ## [0.3.0] — 2026-08-25
 
 Closes part of the gap between what v0.2.0's README/ORCHESTRATOR.md claimed ("self-learning",

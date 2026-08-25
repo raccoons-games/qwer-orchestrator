@@ -156,8 +156,9 @@ Tell the user what was set up (or reused) and that the project's own `tech-lead`
 
 ## Maintaining this system
 
-This whole system — this file, `templates/`, `standards/`, the seed content of `learnings/roles/` and of
-`learnings/process-feedback.md`, and `~/.claude/skills/qwer/SKILL.md` — is
+This whole system — this file, `templates/`, `standards/`, the seed content of `learnings/roles/`,
+`learnings/process-feedback.md`, and `agents/` (shipped global subagents like `taskflow-pm.md`), and
+`~/.claude/skills/qwer/SKILL.md` — is
 published at
 `github.com/raccoons-games/qwer-orchestrator` so every teammate runs the same orchestrator, not a
 machine-local fork that quietly drifts. **Every one of these files is shared studio-wide and outside any

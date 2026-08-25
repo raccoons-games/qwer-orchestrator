@@ -16,7 +16,7 @@ instead of cloning.
 ## 2. Install the system files (always overwrite — these are the shared source of truth)
 
 ```
-mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/repos ~/.claude/skills/qwer
+mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/repos ~/.claude/skills/qwer ~/.claude/agents
 
 cp  <repo>/orchestrator/ORCHESTRATOR.md                    ~/.claude/orchestrator/ORCHESTRATOR.md
 cp  <repo>/orchestrator/templates/*.md                     ~/.claude/orchestrator/templates/
@@ -34,6 +34,15 @@ overwriting it would destroy accumulated Tier-B knowledge. Do the same for
 (same additive-only rule — it's standing process corrections, not per-repo state, but a machine that's
 already accumulated its own entries shouldn't have them clobbered by the repo's seed either). Report
 which files were seeded vs. skipped because they already existed.
+
+## 3b. Seed shared global agents — additive only, never clobber
+
+For each file in `<repo>/orchestrator/agents/` (e.g. `taskflow-pm.md`), copy it to
+`~/.claude/agents/` **only if a file of that name doesn't already exist there** — same rule as learnings:
+a local copy may have accumulated real-world lessons the repo's seed doesn't have yet. These are the
+studio-wide subagents documented in `standards/global-roles.md`; without this step a fresh install would
+have every tech-lead reference a global role (e.g. `taskflow-pm`) that doesn't actually exist yet on that
+machine. Report which agents were seeded vs. skipped because they already existed.
 
 ## 4. Make sure the registry exists — never overwrite it
 

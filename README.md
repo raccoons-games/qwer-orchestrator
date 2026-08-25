@@ -15,15 +15,17 @@ orchestrator/
   ORCHESTRATOR.md               the playbook itself — read this to understand the whole flow
   templates/                    subagent.template.md, tech-lead-skill.template.md
   standards/                    coding-standards.md, global-roles.md, role-rosters.md
+  agents/                        the actual studio-wide global subagents (e.g. taskflow-pm.md) that
+                                 global-roles.md documents — seeded into ~/.claude/agents/
   learnings/roles/               seed Tier-B lessons per role (sanitized of project-identifying detail)
   learnings/process-feedback.md seed standing corrections to the orchestrator's own process
 skills/qwer/SKILL.md             the /qwer slash command that triggers the whole thing
 ```
 
 Not in here, and never will be: `repos/registry.json` (per-machine state — which repos you've already
-set up, their local paths) and the *live*, ever-growing `learnings/roles/*.md` / `process-feedback.md` on
-your machine once they've accumulated more than this repo's seed content. Those are local/personal-machine
-state, not shared system.
+set up, their local paths) and the *live*, ever-growing `learnings/roles/*.md` / `process-feedback.md` /
+`orchestrator/agents/*.md` on your machine once they've accumulated more than this repo's seed content.
+Those are local/personal-machine state, not shared system.
 
 Knowledge collection and cross-project learning here are both **write-time, in-session** mechanisms —
 a subagent or the tech lead appends what it learned to `.claude/knowledge/` or `learnings/roles/*.md`
@@ -40,8 +42,9 @@ Claude should follow `INSTALL.md` in this repo, which:
 1. Clones/pulls this repo to `~/Personal/RaccoonsGames/qwer-orchestrator`.
 2. Copies `orchestrator/ORCHESTRATOR.md`, `orchestrator/templates/`, `orchestrator/standards/` into
    `~/.claude/orchestrator/` (always overwritten — these are the system files).
-3. Seeds `orchestrator/learnings/roles/*.md` into `~/.claude/orchestrator/learnings/roles/` — only the
-   files that don't already exist locally; never clobbers an existing, grown learnings file.
+3. Seeds `orchestrator/learnings/roles/*.md` and `orchestrator/agents/*.md` into
+   `~/.claude/orchestrator/learnings/roles/` and `~/.claude/agents/` respectively — only the files that
+   don't already exist locally; never clobbers an existing, grown file.
 4. Makes sure `~/.claude/orchestrator/repos/registry.json` exists (creates `{}` if missing) — never
    touches it if present.
 5. Copies `skills/qwer/SKILL.md` into `~/.claude/skills/qwer/SKILL.md` (always overwritten).
@@ -55,8 +58,8 @@ Tell your Claude:
 
 > Update the qwer orchestrator from the repo
 
-Same steps as install, run again — it's idempotent. Your accumulated `learnings/roles/*.md` and
-`repos/registry.json` are untouched either way.
+Same steps as install, run again — it's idempotent. Your accumulated `learnings/roles/*.md`,
+`~/.claude/agents/*.md` global agents, and `repos/registry.json` are untouched either way.
 
 ## Versioning
 
