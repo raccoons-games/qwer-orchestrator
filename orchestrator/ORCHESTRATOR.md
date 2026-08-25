@@ -65,17 +65,18 @@ If the repo has no `CLAUDE.md`, invoke the `init` skill to generate one from the
 ## Step 6 — Determine subagent roles
 
 Start from `~/.claude/orchestrator/standards/role-rosters.md` — it defines the proven base roster for
-Unity games (`tech-lead` + `unity-developer`/`unity-senior-dev` + `shader-developer`) and for JS/web
+Unity games (`tech-lead` + `unity-developer` + `shader-developer`) and for JS/web
 games (`tech-lead` + `web-developer` + `designer`), plus how to extend either with on-demand roles
 (`ui-designer`, `level-designer`, `translator`, `<platform>-sdk-dev`, etc.) when the project genuinely
 needs them. Don't shrink below the base roster for a recognized genre without a reason; don't
 over-fragment a small project into roles that will only ever run once.
 
 Good roles are **narrow enough to have a real specialty** and **general enough to recur across
-projects** — that's what lets Tier B learning (below) compound. **Prefer reusing an existing role name**
-(check `~/.claude/orchestrator/learnings/roles/` for files that already exist, e.g.
-`unity-senior-dev.md`) over minting a near-duplicate with a new name — reuse is what accumulates
-seniority in Tier B.
+projects** — that's what lets Tier B learning (below) compound. **Use the role's exact existing name**
+(check `~/.claude/orchestrator/learnings/roles/` and `role-rosters.md` for the established name) rather
+than minting a plausible-sounding variant — a seniority-qualified alternative for a role that already
+has a name (e.g. inventing `<role>-senior-dev` alongside a plain `<role>`) is exactly the kind of
+near-duplicate that fragments Tier B across two files instead of compounding it in one.
 
 **Actively scan for on-demand roles worth proposing — don't wait for the user to name them.** Cheap,
 concrete signals to check in the repo (don't guess without evidence):
