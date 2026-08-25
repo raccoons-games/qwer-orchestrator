@@ -16,11 +16,12 @@ instead of cloning.
 ## 2. Install the system files (always overwrite — these are the shared source of truth)
 
 ```
-mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/repos ~/.claude/skills/qwer
+mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/prompts ~/.claude/orchestrator/repos ~/.claude/skills/qwer
 
 cp  <repo>/orchestrator/ORCHESTRATOR.md                    ~/.claude/orchestrator/ORCHESTRATOR.md
 cp  <repo>/orchestrator/templates/*.md                     ~/.claude/orchestrator/templates/
 cp  <repo>/orchestrator/standards/*.md                     ~/.claude/orchestrator/standards/
+cp  <repo>/orchestrator/prompts/*.md                       ~/.claude/orchestrator/prompts/
 cp  <repo>/skills/qwer/SKILL.md                            ~/.claude/skills/qwer/SKILL.md
 ```
 

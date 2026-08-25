@@ -27,6 +27,10 @@ claiming they were sanitized.
 - `ORCHESTRATOR.md` Step 0 and `learnings/process-feedback.md` — a place for standing corrections to the
   orchestrator's *own process* (as opposed to a role's technical lessons) to persist across sessions, so
   feedback about how `/qwer` runs actually changes future runs instead of needing to be repeated.
+- `prompts/learn-distill.md` — now part of the published system (previously local-only). This is the
+  Stop-hook prompt that unattended-writes Tier B entries to `learnings/roles/*.md`; it was the actual
+  source of the naming-fork and project-identifying-detail leaks fixed above, so every teammate's
+  automated consolidation pass needs the same corrected rules, not just this machine's.
 
 ## [0.1.0] — 2026-08-22
 

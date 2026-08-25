@@ -150,7 +150,9 @@ Tell the user what was set up (or reused) and that the project's own `tech-lead`
 
 ## Maintaining this system
 
-This whole system — this file, `templates/`, `standards/`, the seed content of `learnings/roles/` and of
+This whole system — this file, `templates/`, `standards/`, `prompts/` (the Stop-hook self-learning
+distillation prompt, which carries the same NDA-safety rule since it's what writes to
+`learnings/roles/*.md` unattended), the seed content of `learnings/roles/` and of
 `learnings/process-feedback.md`, and `~/.claude/skills/qwer/SKILL.md` — is published at
 `github.com/raccoons-games/qwer-orchestrator` so every teammate runs the same orchestrator, not a
 machine-local fork that quietly drifts. **Every one of these files is shared studio-wide and outside any
