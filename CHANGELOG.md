@@ -3,6 +3,26 @@
 All notable changes to the qwer orchestrator system are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions are semver.
 
+## [0.3.0] — 2026-08-25
+
+Closes part of the gap between what v0.2.0's README/ORCHESTRATOR.md claimed ("self-learning",
+"any project") and what was actually shipped, found by auditing the repo as a fresh install would
+experience it. An unattended Stop-hook mechanism was drafted and briefly considered for the
+self-learning gap but rejected before being enabled anywhere — no background process does this; see
+"Changed" below and the README's note on what knowledge collection actually is (write-time, in-session,
+not a background job).
+
+### Changed
+- `taskflow-pm` is no longer a hard dependency. `ORCHESTRATOR.md` Step 3 and the tech-lead template's
+  Git workflow section now check whether `~/.claude/agents/taskflow-pm.md` actually exists and fall back
+  to plain `feature/short-description` branch naming and ID-less commit messages when it doesn't, instead
+  of assuming every install has the studio's task tracker configured.
+- `INSTALL.md` now also seeds `learnings/process-feedback.md` (additive-only, same rule as
+  `learnings/roles/*.md`) — it was added to the repo in v0.2.0 but never wired into the install steps.
+- `README.md`'s file tree and install-step summary updated to match what's actually in the repo, and now
+  states plainly that knowledge collection is write-time/in-session (a subagent or tech lead appending
+  to `.claude/knowledge/` or `learnings/roles/*.md` itself), not an unattended background process.
+
 ## [0.2.0] — 2026-08-25
 
 Fixes to gaps found in real use: a role-naming fork, missing architectural standards, and — most

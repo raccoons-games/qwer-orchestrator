@@ -46,10 +46,15 @@ After cloning (or reusing an existing checkout), make sure the working copy is o
 Feature/bugfix work in these repos follows `feature/TASK-ID-short-description` or
 `bugfix/TASK-ID-short-description` branch naming (cut from `develop`), commit messages follow
 `TASK-ID One sentence describing what was done`, and TASK-ID comes from the `taskflow-pm` global
-subagent — never guessed. The full workflow (when to branch, when commit/push/PR need explicit
-go-ahead, the direct-to-develop vs. branch+PR flows, addressing PR review comments) lives in the
-tech-lead template's "Git & TaskFlow workflow" section and gets generated into every project's
-tech-lead skill — this is standing studio process, not something to reinvent per repo.
+subagent — never guessed — **if `taskflow-pm` exists on this machine** (check
+`~/.claude/agents/taskflow-pm.md`). If it doesn't, the studio's task-tracker convention doesn't apply
+here — fall back to plain `feature/short-description`/`bugfix/short-description` branch naming and
+plain, real-sentence commit messages with no ID prefix; don't invent a fake TASK-ID or leave the
+convention half-applied. The full workflow (when to branch, when commit/push/PR need explicit go-ahead,
+the direct-to-develop vs. branch+PR flows, addressing PR review comments, and which of the two ID
+conventions above applies) lives in the tech-lead template's "Git workflow" section and gets generated
+into every project's tech-lead skill — this is standing studio process, not something to reinvent per
+repo, but the ID-scheme half of it is conditional on `taskflow-pm` actually being installed.
 
 ## Step 4 — Detect the stack
 
@@ -151,10 +156,9 @@ Tell the user what was set up (or reused) and that the project's own `tech-lead`
 
 ## Maintaining this system
 
-This whole system — this file, `templates/`, `standards/`, `prompts/` (the Stop-hook self-learning
-distillation prompt, which carries the same NDA-safety rule since it's what writes to
-`learnings/roles/*.md` unattended), the seed content of `learnings/roles/` and of
-`learnings/process-feedback.md`, and `~/.claude/skills/qwer/SKILL.md` — is published at
+This whole system — this file, `templates/`, `standards/`, the seed content of `learnings/roles/` and of
+`learnings/process-feedback.md`, and `~/.claude/skills/qwer/SKILL.md` — is
+published at
 `github.com/raccoons-games/qwer-orchestrator` so every teammate runs the same orchestrator, not a
 machine-local fork that quietly drifts. **Every one of these files is shared studio-wide and outside any
 single project's NDA scope — none of them may ever name a specific project, a ticket ID, or unreleased

@@ -16,12 +16,11 @@ instead of cloning.
 ## 2. Install the system files (always overwrite — these are the shared source of truth)
 
 ```
-mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/prompts ~/.claude/orchestrator/repos ~/.claude/skills/qwer
+mkdir -p ~/.claude/orchestrator/templates ~/.claude/orchestrator/standards ~/.claude/orchestrator/learnings/roles ~/.claude/orchestrator/repos ~/.claude/skills/qwer
 
 cp  <repo>/orchestrator/ORCHESTRATOR.md                    ~/.claude/orchestrator/ORCHESTRATOR.md
 cp  <repo>/orchestrator/templates/*.md                     ~/.claude/orchestrator/templates/
 cp  <repo>/orchestrator/standards/*.md                     ~/.claude/orchestrator/standards/
-cp  <repo>/orchestrator/prompts/*.md                       ~/.claude/orchestrator/prompts/
 cp  <repo>/skills/qwer/SKILL.md                            ~/.claude/skills/qwer/SKILL.md
 ```
 
@@ -30,8 +29,11 @@ cp  <repo>/skills/qwer/SKILL.md                            ~/.claude/skills/qwer
 For each file in `<repo>/orchestrator/learnings/roles/`, copy it to
 `~/.claude/orchestrator/learnings/roles/` **only if a file of that name doesn't already exist there**. A
 local file that already exists has likely grown past the repo's seed content from real project work —
-overwriting it would destroy accumulated Tier-B knowledge. Report which files were seeded vs. skipped
-because they already existed.
+overwriting it would destroy accumulated Tier-B knowledge. Do the same for
+`<repo>/orchestrator/learnings/process-feedback.md` → `~/.claude/orchestrator/learnings/process-feedback.md`
+(same additive-only rule — it's standing process corrections, not per-repo state, but a machine that's
+already accumulated its own entries shouldn't have them clobbered by the repo's seed either). Report
+which files were seeded vs. skipped because they already existed.
 
 ## 4. Make sure the registry exists — never overwrite it
 

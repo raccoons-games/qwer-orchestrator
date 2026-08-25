@@ -12,17 +12,23 @@ fork, not a personal copy to diverge from silently.
 
 ```
 orchestrator/
-  ORCHESTRATOR.md            the playbook itself — read this to understand the whole flow
-  templates/                 subagent.template.md, tech-lead-skill.template.md
-  standards/                 coding-standards.md, global-roles.md, role-rosters.md
-  learnings/roles/           seed Tier-B lessons per role (sanitized of project-identifying detail)
-skills/qwer/SKILL.md          the /qwer slash command that triggers the whole thing
+  ORCHESTRATOR.md               the playbook itself — read this to understand the whole flow
+  templates/                    subagent.template.md, tech-lead-skill.template.md
+  standards/                    coding-standards.md, global-roles.md, role-rosters.md
+  learnings/roles/               seed Tier-B lessons per role (sanitized of project-identifying detail)
+  learnings/process-feedback.md seed standing corrections to the orchestrator's own process
+skills/qwer/SKILL.md             the /qwer slash command that triggers the whole thing
 ```
 
 Not in here, and never will be: `repos/registry.json` (per-machine state — which repos you've already
-set up, their local paths) and the *live*, ever-growing `learnings/roles/*.md` on your machine once
-they've accumulated more than this repo's seed content. Those are local/personal-machine state, not
-shared system.
+set up, their local paths) and the *live*, ever-growing `learnings/roles/*.md` / `process-feedback.md` on
+your machine once they've accumulated more than this repo's seed content. Those are local/personal-machine
+state, not shared system.
+
+Knowledge collection and cross-project learning here are both **write-time, in-session** mechanisms —
+a subagent or the tech lead appends what it learned to `.claude/knowledge/` or `learnings/roles/*.md`
+itself before finishing a task (see `templates/subagent.template.md`'s Tier B section). There is no
+background/unattended process that does this after the fact — that was tried and deliberately removed.
 
 ## Install — for a teammate setting this up for the first time
 

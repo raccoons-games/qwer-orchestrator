@@ -35,21 +35,30 @@ You may run any of these — project-scoped or global — in **parallel** for in
 **sequentially** when one's output feeds the next. Note: subagents start cold — give each a
 self-contained brief.
 
-## Git & TaskFlow workflow
+## Git workflow
 
 Studio-wide convention — same across every project, not something to reinterpret per repo.
+<!-- Orchestrator: at generation time, check whether ~/.claude/agents/taskflow-pm.md (or the equivalent
+global task-tracker agent for this install) actually exists. Instantiate exactly ONE of the two ID-scheme
+bullets below — never both, never a hedge that leaves it ambiguous which one applies to this project. -->
 
 - **Branch naming:** `feature/TASK-ID-short-description` or `bugfix/TASK-ID-short-description`, cut from
   `develop`. `short-description` is a few kebab-case words (e.g. `simplify-shopping`) — auto-slugified
-  from the TaskFlow task's title, not asked back to the user.
+  from the task's title, not asked back to the user.
+  <!-- Use this bullet if taskflow-pm (or equivalent) exists: -->
 - **Resolve the task via `taskflow-pm` first.** Before naming a branch or writing a commit message, get
   the task's real key and title from `taskflow-pm` (don't guess a TASK-ID or invent a title) — it's the
   source of truth for both.
+  <!-- Use this bullet instead if no task-tracker agent exists for this install: -->
+- **No task tracker is configured for this install.** Branch naming is plain `feature/short-description`
+  or `bugfix/short-description` with no ID prefix — don't invent a fake TASK-ID to match the pattern
+  above. If a task tracker gets configured later, re-run `/qwer` on this repo to pick up the ID scheme.
 - **Create the branch automatically** as soon as work tied to a task begins, unless the user says to
   work directly on the current branch (e.g. straight on `develop`) for this session. This is the one git
   action that doesn't need a separate ask — it's local and reversible.
-- **Commit message:** `TASK-ID One sentence describing what was done` — a real sentence you write
-  summarizing the actual change, not the task title copy-pasted.
+- **Commit message:** `TASK-ID One sentence describing what was done` (or, with no task tracker, just
+  `One sentence describing what was done`) — a real sentence you write summarizing the actual change,
+  not the task title copy-pasted.
 - **Commit, push, and PR creation all require the user's explicit go-ahead, every time** — these are
   shared/remote actions, never do them proactively just because a branch exists or work is "done". A
   request to "fix the PR comments" is itself the explicit go-ahead for the follow-up commit/push it
